@@ -1,0 +1,118 @@
+
+es = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=5)
+mc = ModelCheckpoint('best_model.h5', monitor='val_accuracy', mode='max', verbose=1, save_best_only=True)
+model.fit(train_datagen, validation_data = val_datagen, epochs=50, callbacks=[es, mc])
+Epoch 1/50
+90/90 [==============================] - 896s 10s/step - loss: 0.0486 - accuracy: 0.5927 - val_loss: 0.0127 - val_accuracy: 0.6281
+
+Epoch 00001: val_accuracy improved from -inf to 0.62808, saving model to best_model.h5
+Epoch 2/50
+90/90 [==============================] - 872s 10s/step - loss: 0.0119 - accuracy: 0.6303 - val_loss: 0.0127 - val_accuracy: 0.6274
+
+Epoch 00002: val_accuracy did not improve from 0.62808
+Epoch 3/50
+90/90 [==============================] - 870s 10s/step - loss: 0.0120 - accuracy: 0.6260 - val_loss: 0.0124 - val_accuracy: 0.6209
+
+Epoch 00003: val_accuracy did not improve from 0.62808
+Epoch 4/50
+90/90 [==============================] - 870s 10s/step - loss: 0.0119 - accuracy: 0.6227 - val_loss: 0.0123 - val_accuracy: 0.6259
+
+Epoch 00004: val_accuracy did not improve from 0.62808
+Epoch 5/50
+90/90 [==============================] - 870s 10s/step - loss: 0.0116 - accuracy: 0.6224 - val_loss: 0.0123 - val_accuracy: 0.6178
+
+Epoch 00005: val_accuracy did not improve from 0.62808
+Epoch 6/50
+90/90 [==============================] - 879s 10s/step - loss: 0.0116 - accuracy: 0.6212 - val_loss: 0.0121 - val_accuracy: 0.6401
+
+Epoch 00006: val_accuracy improved from 0.62808 to 0.64015, saving model to best_model.h5
+Epoch 7/50
+90/90 [==============================] - 875s 10s/step - loss: 0.0115 - accuracy: 0.6306 - val_loss: 0.0124 - val_accuracy: 0.6264
+
+Epoch 00007: val_accuracy did not improve from 0.64015
+Epoch 8/50
+90/90 [==============================] - 882s 10s/step - loss: 0.0114 - accuracy: 0.6318 - val_loss: 0.0120 - val_accuracy: 0.6432
+
+Epoch 00008: val_accuracy improved from 0.64015 to 0.64318, saving model to best_model.h5
+Epoch 9/50
+90/90 [==============================] - 886s 10s/step - loss: 0.0111 - accuracy: 0.6423 - val_loss: 0.0119 - val_accuracy: 0.6345
+
+Epoch 00009: val_accuracy did not improve from 0.64318
+Epoch 10/50
+90/90 [==============================] - 879s 10s/step - loss: 0.0113 - accuracy: 0.6408 - val_loss: 0.0118 - val_accuracy: 0.6406
+
+Epoch 00010: val_accuracy did not improve from 0.64318
+Epoch 11/50
+90/90 [==============================] - 875s 10s/step - loss: 0.0111 - accuracy: 0.6417 - val_loss: 0.0116 - val_accuracy: 0.6441
+
+Epoch 00011: val_accuracy improved from 0.64318 to 0.64410, saving model to best_model.h5
+Epoch 12/50
+90/90 [==============================] - 872s 10s/step - loss: 0.0111 - accuracy: 0.6416 - val_loss: 0.0116 - val_accuracy: 0.6482
+
+Epoch 00012: val_accuracy improved from 0.64410 to 0.64823, saving model to best_model.h5
+Epoch 13/50
+90/90 [==============================] - 871s 10s/step - loss: 0.0109 - accuracy: 0.6455 - val_loss: 0.0118 - val_accuracy: 0.6413
+
+Epoch 00013: val_accuracy did not improve from 0.64823
+Epoch 14/50
+90/90 [==============================] - 873s 10s/step - loss: 0.0107 - accuracy: 0.6464 - val_loss: 0.0114 - val_accuracy: 0.6438
+
+Epoch 00014: val_accuracy did not improve from 0.64823
+Epoch 15/50
+90/90 [==============================] - 865s 10s/step - loss: 0.0108 - accuracy: 0.6444 - val_loss: 0.0115 - val_accuracy: 0.6481
+
+Epoch 00015: val_accuracy did not improve from 0.64823
+Epoch 16/50
+90/90 [==============================] - 861s 10s/step - loss: 0.0105 - accuracy: 0.6486 - val_loss: 0.0113 - val_accuracy: 0.6499
+
+Epoch 00016: val_accuracy improved from 0.64823 to 0.64990, saving model to best_model.h5
+Epoch 17/50
+90/90 [==============================] - 861s 10s/step - loss: 0.0106 - accuracy: 0.6468 - val_loss: 0.0111 - val_accuracy: 0.6523
+
+Epoch 00017: val_accuracy improved from 0.64990 to 0.65234, saving model to best_model.h5
+Epoch 18/50
+90/90 [==============================] - 862s 10s/step - loss: 0.0106 - accuracy: 0.6485 - val_loss: 0.0110 - val_accuracy: 0.6523
+
+Epoch 00018: val_accuracy did not improve from 0.65234
+Epoch 19/50
+90/90 [==============================] - 862s 10s/step - loss: 0.0105 - accuracy: 0.6507 - val_loss: 0.0110 - val_accuracy: 0.6527
+
+Epoch 00019: val_accuracy improved from 0.65234 to 0.65271, saving model to best_model.h5
+Epoch 20/50
+90/90 [==============================] - 861s 10s/step - loss: 0.0105 - accuracy: 0.6503 - val_loss: 0.0110 - val_accuracy: 0.6595
+
+Epoch 00020: val_accuracy improved from 0.65271 to 0.65948, saving model to best_model.h5
+Epoch 21/50
+90/90 [==============================] - 861s 10s/step - loss: 0.0103 - accuracy: 0.6506 - val_loss: 0.0110 - val_accuracy: 0.6575
+
+Epoch 00021: val_accuracy did not improve from 0.65948
+Epoch 22/50
+90/90 [==============================] - 860s 10s/step - loss: 0.0103 - accuracy: 0.6543 - val_loss: 0.0110 - val_accuracy: 0.6429
+
+Epoch 00022: val_accuracy did not improve from 0.65948
+Epoch 23/50
+90/90 [==============================] - 865s 10s/step - loss: 0.0104 - accuracy: 0.6526 - val_loss: 0.0109 - val_accuracy: 0.6520
+
+Epoch 00023: val_accuracy did not improve from 0.65948
+Epoch 24/50
+90/90 [==============================] - 878s 10s/step - loss: 0.0103 - accuracy: 0.6540 - val_loss: 0.0110 - val_accuracy: 0.6575
+
+Epoch 00024: val_accuracy did not improve from 0.65948
+Epoch 25/50
+90/90 [==============================] - 898s 10s/step - loss: 0.0101 - accuracy: 0.6548 - val_loss: 0.0110 - val_accuracy: 0.6533
+
+Epoch 00025: val_accuracy did not improve from 0.65948
+Epoch 26/50
+90/90 [==============================] - 878s 10s/step - loss: 0.0101 - accuracy: 0.6549 - val_loss: 0.0109 - val_accuracy: 0.6634
+
+Epoch 00026: val_accuracy improved from 0.65948 to 0.66339, saving model to best_model.h5
+Epoch 27/50
+90/90 [==============================] - 879s 10s/step - loss: 0.0100 - accuracy: 0.6574 - val_loss: 0.0109 - val_accuracy: 0.6497
+
+Epoch 00027: val_accuracy did not improve from 0.66339
+Epoch 28/50
+90/90 [==============================] - 884s 10s/step - loss: 0.0099 - accuracy: 0.6556 - val_loss: 0.0110 - val_accuracy: 0.6606
+
+Epoch 00028: val_accuracy did not improve from 0.66339
+Epoch 00028: early stopping
+<tensorflow.python.keras.callbacks.History at 0x7fbb1b83e208>

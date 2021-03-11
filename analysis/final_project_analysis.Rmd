@@ -1,0 +1,50 @@
+---
+title: "Deep Learning 2 Final Project Analysis"
+author: "Alexandra Salem"
+date: "2/16/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+vanilla <- read_csv("places_10000_50_loss.csv")
+vanilla_fusion <- read_csv("places_fusion_10000_50_loss.csv")
+```
+
+```{r}
+vanilla <- vanilla %>% mutate(model = "Vanilla AE") %>% mutate(epoch = row_number())
+vanilla_fusion <- vanilla_fusion %>% mutate(model = "Vanilla AE +\nInceptionResNet") %>% mutate(epoch = row_number())
+data <- vanilla %>% bind_rows(vanilla_fusion)
+```
+
+```{r}
+ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = accuracy, color = model)) +
+  geom_line() 
+
+ggsave(filename = "accuracy.png")
+```
+
+```{r}
+ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = val_accuracy, color = model)) +
+  geom_line() 
+ggsave(filename = "val_accuracy.png")
+```
+
+```{r}
+ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = loss, color = model)) +
+  geom_line() 
+ggsave(filename = "loss.png")
+```
+
+```{r}
+ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = val_loss, color = model)) +
+  geom_line() 
+ggsave(filename = "val_loss.png")
+```
