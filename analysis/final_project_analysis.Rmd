@@ -16,35 +16,55 @@ library(tidyverse)
 ```{r}
 vanilla <- read_csv("places_10000_50_loss.csv")
 vanilla_fusion <- read_csv("places_fusion_10000_50_loss.csv")
+vae <- read_csv("places_vae_10000_100_loss.csv") %>% mutate(epoch = row_number()) %>% mutate(model = "VAE")
+vae_fusion <- read_csv("places_vae_fusion_10000_100_loss.csv") %>% mutate(epoch = row_number()) %>% mutate(model = "VAE +\nInceptionResNet")
 ```
 
 ```{r}
-vanilla <- vanilla %>% mutate(model = "Vanilla AE") %>% mutate(epoch = row_number())
-vanilla_fusion <- vanilla_fusion %>% mutate(model = "Vanilla AE +\nInceptionResNet") %>% mutate(epoch = row_number())
+vanilla <- vanilla %>% mutate(model = "Model 1: AE") %>% mutate(epoch = row_number())
+vanilla_fusion <- vanilla_fusion %>% mutate(model = "Model 2: AE +\nInceptionResNet") %>% mutate(epoch = row_number())
 data <- vanilla %>% bind_rows(vanilla_fusion)
+data_vae <- vae %>% bind_rows(vae_fusion)
 ```
 
 ```{r}
 ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = accuracy, color = model)) +
   geom_line() 
 
-ggsave(filename = "accuracy.png")
+#ggsave(filename = "accuracy.png")
 ```
 
 ```{r}
 ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = val_accuracy, color = model)) +
   geom_line() 
-ggsave(filename = "val_accuracy.png")
+#ggsave(filename = "val_accuracy.png")
 ```
 
 ```{r}
 ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = loss, color = model)) +
-  geom_line() 
-ggsave(filename = "loss.png")
+  geom_line() +
+  ggtitle("Models 1 and 2 Training Loss")
+ggsave(filename = "ae_loss.png")
 ```
 
 ```{r}
 ggplot(data %>% filter(epoch != 1), aes(x = epoch, y = val_loss, color = model)) +
-  geom_line() 
-ggsave(filename = "val_loss.png")
+  geom_line() +
+  ggtitle("Models 1 and 2 Validation Loss")
+ggsave(filename = "ae_val_loss.png")
 ```
+
+```{r}
+ggplot(data_vae %>% filter(epoch !=1), aes(x = epoch, y = loss, color = model)) +
+  geom_line() +
+  ggtitle("Models 3 and 4 Training Loss")
+ggsave(filename = "vae_loss.png")
+```
+
+```{r}
+ggplot(data_vae %>% filter(epoch !=1), aes(x = epoch, y = val_loss, color = model)) +
+  geom_line() +
+  ggtitle("Models 3 and 4 Validation Loss")
+ggsave(filename = "vae_val_loss.png")
+```
+
